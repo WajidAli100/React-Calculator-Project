@@ -1,30 +1,21 @@
-
 import Button from './Button';
 
 const Keypad = ({ setCurrentInput, currentInput, handleCalculation, setResult }) => {
-    // Handle Button Click for Number and Operators
     const handleClick = (value) => {
-        setCurrentInput(currentInput + value);
+        setCurrentInput(currentInput + value);  // Append value to input
     };
 
-    // Handle Backspace (removing the last character)
     const handleBackspace = () => {
-        setCurrentInput(currentInput.slice(0, -1));
+        setCurrentInput(currentInput.slice(0, -1));  // Remove last character
     };
 
-    // Handle Clear (reset input and result)
     const handleClear = () => {
-        setCurrentInput('');
-        setResult(0);
+        setCurrentInput('');  // Clear input
+        setResult(0);  // Reset result to zero
     };
 
     return (
-        <div className="grid grid-cols-4 font-bold text-2xl gap-2">
-            <Button label="%" onClick={() => handleClick('%')} />
-            <Button label="C" onClick={handleClear} />  {/* Clear Button */}
-            <Button label="⌫" onClick={handleBackspace} />  {/* Backspace Button */}
-            <Button label="/" onClick={() => handleClick('/')} />
-
+        <div className="grid grid-cols-4 gap-2 font-bold text-xl">
             <Button label="1" onClick={() => handleClick('1')} />
             <Button label="2" onClick={() => handleClick('2')} />
             <Button label="3" onClick={() => handleClick('3')} />
@@ -40,13 +31,15 @@ const Keypad = ({ setCurrentInput, currentInput, handleCalculation, setResult })
             <Button label="9" onClick={() => handleClick('9')} />
             <Button label="*" onClick={() => handleClick('*')} />
 
-
-            <Button label="CE" onClick={handleClear} />
             <Button label="0" onClick={() => handleClick('0')} />
-            <Button label="." onClick={() => handleClick('.')} />
-            <Button label="=" onClick={handleCalculation} className="col-span-4" />  {/* Calculation Button */}
+            <Button label="AC" onClick={handleClear} />  {/* Clear Button */}
+            <Button label="⌫" onClick={handleBackspace} />  {/* Backspace Button */}
+            <Button label="/" onClick={() => handleClick('/')} />
+
+            <Button label="=" onClick={handleCalculation} className="col-span-4" />  {/* Equals Button */}
         </div>
     );
 };
 
 export default Keypad;
+

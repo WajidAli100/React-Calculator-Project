@@ -1,9 +1,12 @@
+'use client';
 
 const Display = ({ currentInput, result }) => {
     return (
-        <div className="bg-slate-200 p-4 rounded-lg mb-4 text-right font-bold text-3xl">
-            <div>{currentInput || '0'}</div>
-            <div>{result !== null ? `= ${result}` : ''}</div>
+        <div className="bg-gray-800 p-4 rounded-lg mb-4 text-right text-3xl">
+            {/* Show current input or zero if there's no input */}
+            <div className="text-white">{currentInput || '0'}</div>
+            {/* Show the result, if available */}
+            <div className="text-green-400">{result !== null ? `= ${result}` : ''}</div>
         </div>
     );
 };
